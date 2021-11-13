@@ -190,3 +190,4 @@ taskDefinition.addContainer("Task", {
 * [AWS Fargate](https://aws.amazon.com/fargate/)
 * [AWS CDK](https://aws.amazon.com/cdk)
 * [The CDK Book](https://www.thecdkbook.com/)
+* Catch me on [Twitter](https://twitter.com/sathyabhat), [GitHub](https://github.com/sathyabhat), [LinkedIn](https://www.linkedin.com/in/sathyabhat/)
