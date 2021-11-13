@@ -154,10 +154,39 @@ Disadvantages
 * No free tier (#AWSWishlist, anyone?)  & minimum billing is 1 minute
 * Environment variable values listed on AWS Console
 * Use SSM Parameter store for secrets
-* No support for [EBS storage][ebs] (or EBS/EFS) yet, but on the roadmap
+* No support for [EBS storage][ebs] yet, but on the roadmap
 * Play [CPU/Memory][efs-combo] combo bingo
 
 </v-clicks>
 
 [ebs]: https://github.com/aws/containers-roadmap/issues/64
 [efs-combo]: images/efs_cpu_memory_combo.jpg
+
+--- 
+
+# Show me the code!
+
+```ts
+
+const dockerImage = new DockerImageAsset(this, 'Docker', {
+  directory: "docker"
+})
+
+const taskDefinition = new ecs.FargateTaskDefinition(this, "taskDef", {
+  cpu: 256,
+  memoryLimitMiB: 1024
+})
+
+taskDefinition.addContainer("Task", {
+  image: ecs.ContainerImage.fromDockerImageAsset(dockerImage)
+})
+```
+
+--- 
+
+# Q&A, Links
+
+* [GitHub repo (slides + code)](https://github.com/SathyaBhat/jaws-pankration-2021)
+* [AWS Fargate](https://aws.amazon.com/fargate/)
+* [AWS CDK](https://aws.amazon.com/cdk)
+* [The CDK Book](https://www.thecdkbook.com/)
