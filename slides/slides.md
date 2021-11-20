@@ -17,6 +17,7 @@ info: |
 drawings:
   persist: false
 background: images/wallpaper.png
+layout: cover
 ---
 
 --- 
@@ -25,6 +26,11 @@ background: images/wallpaper.png
 ---
 
 # Agenda
+
+<!-- global-top.vue -->
+<template>
+  <footer class="absolute bottom-0 left-0 right-0 p-2">Your Name</footer>
+</template>
 
 * About me
 * Problems at hand
@@ -71,7 +77,7 @@ operational tasks:
 <v-clicks>
 
   * spin up an EC2 instance
-  * Wait for instance to be ready
+  * Wait for an instance to be ready
   * Fumble with SSH keys
   * Fumble with mysqldump command
   * Wait for data to be exported
@@ -164,6 +170,25 @@ Disadvantages
 
 --- 
 
+# Why not Lambda?
+
+<v-clicks>
+
+* Write a Lambda function which does equivalent of mysqldump
+  * Wasted time in re-engineering the equivalent of mysqldump
+* Add mysqldump binary to package
+  * system("mysqldump…")
+  * Eh…
+* Lambda Containers
+  * still need to build a Lambda Container
+* Problems?
+  * Lambda limits to only 512 MB on /tmp
+  * Lambda runtime limits(15 minutes currently, was 5 minutes earlier)
+
+</v-clicks>
+
+--- 
+
 # Show me the code!
 
 ```ts
@@ -182,12 +207,12 @@ taskDefinition.addContainer("Task", {
 })
 ```
 
---- 
+---
 
 # Q&A, Links
 
-* [GitHub repo (slides + code)](https://github.com/SathyaBhat/jaws-pankration-2021)
+* GitHub repo (slides + code) - https://github.com/SathyaBhat/jaws-pankration-2021
 * [AWS Fargate](https://aws.amazon.com/fargate/)
 * [AWS CDK](https://aws.amazon.com/cdk)
 * [The CDK Book](https://www.thecdkbook.com/)
-* Catch me on [Twitter](https://twitter.com/sathyabhat), [GitHub](https://github.com/sathyabhat), [LinkedIn](https://www.linkedin.com/in/sathyabhat/)
+* Catch me on [Twitter](https://twitter.com/sathyabhat), [GitHub](https://github.com/sathyabhat), [LinkedIn](https://www.linkedin.com/in/sathyabhat/) - sathyabhat
